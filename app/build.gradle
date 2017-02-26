@@ -43,4 +43,5 @@ dependencies {
     compile 'com.fasterxml.jackson.core:jackson-databind:2.3.2'
     /*compile 'com.google.android.gms:play-services:10.2.0'*/
     testCompile 'junit:junit:4.12'
+    compile 'com.google.android.gms:play-services-appindexing:8.4.0'
 }

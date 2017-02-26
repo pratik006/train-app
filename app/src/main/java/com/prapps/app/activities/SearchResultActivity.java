@@ -45,8 +45,6 @@ import java.util.Map;
 
 public class SearchResultActivity extends AppCompatActivity {
 
-    public static final String BASE_URL = "http://apps-pratiks.rhcloud.com/rest/rail/hyd-mmts";
-
     List<Train> trains = new ArrayList<>();
     String from;
     String to;
@@ -58,11 +56,13 @@ public class SearchResultActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d(SearchResultActivity.class.getName(), "intent created");
         setContentView(R.layout.search_result_activity);
         setTitle("Trains");
         Intent intent = getIntent();
         from = intent.getStringExtra("from");
         to = intent.getStringExtra("to");
+        Boolean nextHourCount = intent.getBooleanExtra("nextHourCount", false);
 
         //ListView listView = (ListView) findViewById(R.id.listView);
 
@@ -72,7 +72,7 @@ public class SearchResultActivity extends AppCompatActivity {
         progress.setMessage("Wait while loading...");
         progress.setCancelable(false); // disable dismiss by tapping outside of the dialog
         progress.show();
-        RestCaller<Train[]> rClient = new RestCaller(RestCaller.FIND_TRAINS_URL, new Command<Train[]>() {
+        Command<Train[]> cmd = new Command<Train[]>() {
             @Override
             public void execute(Train[] trainObjects) {
                 progress.dismiss();
@@ -113,8 +113,14 @@ public class SearchResultActivity extends AppCompatActivity {
                     adapter.add(train);
                 }
             }
-        }, Train[].class);
-        rClient.execute(new KeyValue<String>("from", from), new KeyValue<String>("to", to));
+        };
+        RestCaller<Train[]> rClient = new RestCaller(RestCaller.FIND_TRAINS_URL, cmd, Train[].class);
+        if (nextHourCount) {
+            rClient.execute(new KeyValue<String>("from", from), new KeyValue<String>("to", to), new KeyValue<String>("nextHourCount", "4"));
+        } else {
+            rClient.execute(new KeyValue<String>("from", from), new KeyValue<String>("to", to));
+        }
+
     }
 
     private class StableArrayAdapter extends ArrayAdapter<Train> {

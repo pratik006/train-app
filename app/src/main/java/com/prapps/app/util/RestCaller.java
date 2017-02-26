@@ -48,12 +48,12 @@ public class RestCaller<T> extends AsyncTask<KeyValue<String>, Void, T> {
                 }
             }
             URI targetUrl = builder.build().toUri();
-            Log.d(RestCaller.class.getName(), "RestUrl: "+targetUrl);
+            //Log.d(RestCaller.class.getName(), "RestUrl: "+targetUrl);
             restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
             t = restTemplate.getForObject(targetUrl, clazz);
             Log.d(RestCaller.class.getSimpleName(), t+"");
         } catch (Exception e) {
-            Log.e("MainActivity", e.getMessage(), e);
+            Log.e("RestCaller", e.getMessage(), e);
         }
 
         return t;

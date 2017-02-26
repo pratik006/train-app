@@ -38,6 +38,9 @@ public class SingleShotLocationProvider {
                 if(GpsStatus.GPS_EVENT_STARTED == event) {
                     Log.d(SingleShotLocationProvider.class.getName(), "Gps started");
                 }
+                if(GpsStatus.GPS_EVENT_STARTED == event) {
+                    Log.d(SingleShotLocationProvider.class.getName(), "Gps started");
+                }
             }
         });
 

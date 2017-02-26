@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:id="@+id/search_activity"
@@ -54,23 +55,51 @@
         android:id="@+id/txtError"
         android:layout_weight="0.14" />
 
-    <AutoCompleteTextView
-        android:layout_width="356dp"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:id="@+id/txtFrom"
-        android:layout_weight="0.14"
-        />
-
-    <AutoCompleteTextView
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/txtTo"
-        android:layout_weight="0.14" />
+        android:layout_height="match_parent"
+        android:layout_weight="0.14"
+        android:gravity="center_vertical">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="298dp"
+            android:layout_height="wrap_content">
+
+            <AutoCompleteTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:id="@+id/txtFrom"
+                android:hint="From"
+                />
+
+            <AutoCompleteTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtTo"
+                android:hint="To"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnSwap"
+            android:layout_weight="4.12"
+            android:onClick="btnSwapOnClick"
+            android:text="&#x21c5;"
+            android:textSize="36sp"
+            tools:textStyle="bold"
+            android:textAlignment="gravity" />
+
+    </LinearLayout>
 
     <CheckBox
-        android:text="Next 2 hours"
+        android:text="Next 4 hours"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/nextTwoHours"
