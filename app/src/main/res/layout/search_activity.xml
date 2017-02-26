@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:id="@+id/search_activity"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="0dp"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.prapps.app.activities.SearchActivity"
+    tools:paddingBottom="@dimen/activity_horizontal_margin">
+
+    <!--<data>
+        <variable
+            name="searchReq"
+            type="com.prapps.app.model.TrainSearchReq"/>
+    </data>-->
+    <!--<LinearLayout
+        android:orientation="horizontal"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimaryDark"
+        android:layout_width="match_parent"
+        android:paddingBottom="0dp"
+        android:paddingLeft="0dp"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="0dp">
+
+        <ImageView
+            android:id="@+id/header"
+            android:src="@drawable/mmts"
+            android:layout_width="49dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="left"
+            android:adjustViewBounds="true" />
+
+        <TextView
+            android:text="Suburban Train App"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/textView"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp" />
+
+    </LinearLayout>-->
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtError"
+        android:layout_weight="0.14" />
+
+    <AutoCompleteTextView
+        android:layout_width="356dp"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/txtFrom"
+        android:layout_weight="0.14"
+        />
+
+    <AutoCompleteTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtTo"
+        android:layout_weight="0.14" />
+
+    <CheckBox
+        android:text="Next 2 hours"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/nextTwoHours"
+        android:layout_weight="0.14" />
+
+    <Button
+        android:text="Find"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnFind"
+        android:layout_weight="0.14"
+        android:onClick="btnFindOnClick"/>
+
+</LinearLayout>
